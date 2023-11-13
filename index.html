@@ -3,9 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="weather-container">
+        <h2 class="weather-forecast">Partly Cloudy</h2>
+        <h1 class="location">Bangkok, Thailand</h1>
+        <div class="stats-container">
+          <p class="degree">12°C</p>
+          <div class="weatherstats">
+            <p class="perceived-temperature">FEELS LIKE : 12 °C</p>
+            <p class="wind">4 MPH</p>
+            <p class="humidity">66%</p>
+          </div>
+        </div>
+      </div>
+      <div class="search-container">
+        <input
+          type="search"
+          class="api-search"
+          id="api-search"
+          name="search"
+          placeholder="Search City"
+        />
+      </div>
+    </div>
+  </body>
 </html>
