@@ -1,1 +1,1 @@
-console.log("hello");
+console.log("Hello brother"),new class{constructor(){}};
