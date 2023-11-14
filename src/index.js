@@ -1,10 +1,8 @@
-console.log('Hello brother');
-
-// import { createNote } from "./createnote.js";
+import { weatherApp } from './weatherApp.js';
 
 class indexJs {
   constructor() {
-    // this.createNote = new createNote();
+    this.weatherApp = new weatherApp();
   }
 }
 
