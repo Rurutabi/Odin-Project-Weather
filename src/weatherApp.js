@@ -24,12 +24,13 @@ export class weatherApp {
         `https://api.weatherapi.com/v1/current.json?key=991ba51eacc4429ebf5131813231011&q=${this.searchLocation}`,
         { mode: 'cors' }
       );
+
       const data = await response.json();
       this.warning.classList.add('hide');
       this._insertHTML(data);
     } catch (err) {
       this.warning.classList.remove('hide');
-      console.log('Something is wrong ->' + err);
+      console.log('Error fetching data:' + err);
     }
   }
 
