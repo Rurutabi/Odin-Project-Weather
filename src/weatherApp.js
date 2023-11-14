@@ -1,15 +1,21 @@
 export class weatherApp {
+  //weather stats
   condition = document.querySelector('.condition');
   location = document.querySelector('.location');
-  apiSearch = document.querySelector('.api-search');
   icon = document.querySelector('.icon');
   degree = document.querySelector('.degree');
   feellike = document.querySelector('.feellike');
   wind = document.querySelector('.wind');
   humidity = document.querySelector('.humidity');
   searchLocation = 'thailand';
+
+  //apisearch
+  apiSearch = document.querySelector('.api-search');
+  warning = document.querySelector('.warning');
+
   constructor() {
     this._fetchData();
+    this._searchDate();
   }
 
   async _fetchData() {
@@ -19,13 +25,15 @@ export class weatherApp {
         { mode: 'cors' }
       );
       const data = await response.json();
-      this._insertDetail(data);
+      this.warning.classList.add('hide');
+      this._insertHTML(data);
     } catch (err) {
+      this.warning.classList.remove('hide');
       console.log('Something is wrong ->' + err);
     }
   }
 
-  _insertDetail(data) {
+  _insertHTML(data) {
     this.condition.textContent = `${data.current.condition.text}`;
     this.icon.src = `${data.current.condition.icon}`;
     this.location.textContent = `${data.location.name} , ${data.location.country}`;
@@ -34,13 +42,14 @@ export class weatherApp {
     this.wind.textContent = `WIND : ${data.current.wind_mph} MPH`;
     this.humidity.textContent = `HUMIDITY : ${data.current.humidity}%`;
   }
-}
 
-// async function fetchImage() {
-//   const response = await fetch(
-//     `https://api.weatherapi.com/v1/current.json?key=991ba51eacc4429ebf5131813231011&q=thailand`,
-//     { mode: 'cors' }
-//   );
-//   const data = await response.json();
-//   console.log(data);
-// }
+  _searchDate() {
+    this.apiSearch.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        this.searchLocation = this.apiSearch.value;
+        this._fetchData();
+        this.apiSearch.value = '';
+      }
+    });
+  }
+}

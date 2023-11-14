@@ -90,3 +90,14 @@ body {
 .api-search::placeholder {
   color: white; /* Lighter text color for the placeholder */
 }
+
+.warning {
+  position: relative;
+  margin-top: 8px;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+}
+
+.hide {
+  display: none;
+}
