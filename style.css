@@ -39,6 +39,12 @@ body {
   width: 100%;
 }
 
+.condition-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .weather-container {
   font-size: 1.6rem;
 }
@@ -52,12 +58,15 @@ body {
 .degree {
   font-size: 3.6rem;
   font-weight: bold;
+  border-right: 1px solid white;
+  padding-right: 24px;
 }
 
 .weatherstats {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  font-size: 1.4rem;
   gap: 8px;
 }
 
